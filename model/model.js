@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const formSchema = new mongoose.Schema({
-  postName: {
+  designation: {
     type: String,
     required: true,
   },
@@ -9,7 +9,7 @@ const formSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  fatherName: {
+  fName: {
     type: String,
     required: true,
   },
@@ -25,11 +25,11 @@ const formSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  correspondingAddress: {
+  cAddress: {
     type: String,
     required: true,
   },
-  adhaar: {
+  adharr: {
     type: Number,
     required: true,
     unique: true,
@@ -41,22 +41,22 @@ const formSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  highschoolpercent: {
+  highSchoolPercent: {
     type: Number,
   },
-  highschoolyear: {
+  highSchoolYear: {
     type: Number,
   },
-  interpercent: {
+  interPercent: {
     type: Number,
   },
-  interyear: {
+  interYear: {
     type: Number,
   },
-  diplomapercent: {
+  diplomaPercent: {
     type: Number,
   },
-  diplomayear: {
+  diplomaYear: {
     type: Number,
   },
   exp: [
