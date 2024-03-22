@@ -1,12 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const FormData = require("./model/model");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json({ limit: "20kb" }));
+app.use(cors());
 // app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 
 mongoose
