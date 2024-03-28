@@ -21,13 +21,50 @@ mongoose
 
 app.post("/submitForm", async (req, res) => {
   try {
-    const body = req.body; // Added this line to fix 'body is not defined' error
-    const user = await FormData.findOne({ adhaar: body.adhaar });
+    const {
+      designation,
+      name,
+      fName,
+      dob,
+      category,
+      address,
+      cAddress,
+      adharr,
+      pan,
+      phone,
+      highSchoolPercent,
+      highSchoolYear,
+      interPercent,
+      interYear,
+      diplomaPercent,
+      diplomaYear,
+      exp,
+    } = req.body; // Added this line to fix 'body is not defined' error
+
+    const user = await FormData.findOne({ adharr });
     if (!user) {
-      const data = await new FormData(body).save();
-      return res.json({ data: data, message: "form filled" }); // Return here to avoid sending multiple responses
+      const data = await new FormData({
+        designation,
+        name,
+        fName,
+        dob,
+        category,
+        address,
+        cAddress,
+        adharr,
+        pan,
+        phone,
+        highSchoolPercent,
+        highSchoolYear,
+        interPercent,
+        interYear,
+        diplomaPercent,
+        diplomaYear,
+        exp,
+      }).save();
+      return res.json({ data: data, message: "form filled" });
     }
-    return res.json({ message: "Form with this Adhaar is already filled." }); // Return here to avoid sending multiple responses
+    return res.json({ message: "Form with this Adhaar is already filled." });
   } catch (e) {
     return res.json({ error: e }); // Return here to avoid sending multiple responses
   }
