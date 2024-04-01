@@ -65,6 +65,10 @@ const formSchema = new mongoose.Schema({
       comment: String,
     },
   ],
+  transactionId: {
+    type: Number,
+    required: true,
+  },
 });
 
 const FormData = mongoose.model("Form", formSchema);

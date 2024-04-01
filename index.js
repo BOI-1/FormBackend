@@ -39,6 +39,7 @@ app.post("/submitForm", async (req, res) => {
       diplomaPercent,
       diplomaYear,
       exp,
+      transactionId
     } = req.body; // Added this line to fix 'body is not defined' error
 
     const user = await FormData.findOne({ adharr });
@@ -61,6 +62,7 @@ app.post("/submitForm", async (req, res) => {
         diplomaPercent,
         diplomaYear,
         exp,
+        transactionId
       }).save();
       return res.json({ data: data, message: "form filled" });
     }
@@ -69,6 +71,10 @@ app.post("/submitForm", async (req, res) => {
     return res.json({ error: e }); // Return here to avoid sending multiple responses
   }
 });
+
+app.post("/anexure", (req,res) => {
+  res.send("kmd")
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
