@@ -66,7 +66,7 @@ const formSchema = new mongoose.Schema({
     },
   ],
   transactionId: {
-    type: Number,
+    type: String,
     required: true,
   },
 });
