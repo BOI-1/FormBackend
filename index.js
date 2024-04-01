@@ -64,11 +64,11 @@ app.post("/submitForm", async (req, res) => {
         exp,
         transactionId
       }).save();
-      return res.json({ data: data, message: "form filled" });
+      return res.status(200).json({ data: data, message: "form filled" });
     }
-    return res.json({ message: "Form with this Adhaar is already filled." });
+    return res.status(400).json({ message: "Form with this Adhaar is already filled." });
   } catch (e) {
-    return res.json({ error: e }); // Return here to avoid sending multiple responses
+    return res.status(404).json({ error: e }); // Return here to avoid sending multiple responses
   }
 });
 
