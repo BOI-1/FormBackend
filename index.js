@@ -72,8 +72,8 @@ app.post("/submitForm", async (req, res) => {
   }
 });
 
-app.post("/anexure", (req,res) => {
-  res.send("kmd")
+app.post("/", (req,res) => {
+  res.json({message:"server running"})
 })
 
 app.listen(PORT, () => {
