@@ -72,7 +72,7 @@ app.post("/submitForm", async (req, res) => {
   }
 });
 
-app.post("/", (req,res) => {
+app.get("/", (req,res) => {
   res.json({message:"server running"})
 })
 
