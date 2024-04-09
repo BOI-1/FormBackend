@@ -75,7 +75,8 @@ app.post("/submitForm", async (req, res) => {
 });
 
 app.get("/", (req,res) => {
-  res.json({message:"server running"})
+  const data = FormData.find()
+  res.json({data})
 })
 
 app.listen(PORT, () => {
