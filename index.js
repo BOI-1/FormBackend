@@ -40,7 +40,7 @@ app.post("/submitForm", async (req, res) => {
       diplomaPercent,
       diplomaYear,
       exp,
-      transactionId
+      transactionId,
     } = req.body; // Added this line to fix 'body is not defined' error
 
     const user = await FormData.findOne({ adharr });
@@ -64,20 +64,27 @@ app.post("/submitForm", async (req, res) => {
         diplomaPercent,
         diplomaYear,
         exp,
-        transactionId
+        transactionId,
       }).save();
-      return res.json({ data: data, message: "form filled",status:200 });
+      return res.json({ data: data, message: "form filled", status: 200 });
     }
-    return res.json({ message: "Form with this Adhaar is already filled.",status:400 });
+    return res.json({
+      message: "Form with this Adhaar is already filled.",
+      status: 400,
+    });
   } catch (e) {
-    return res.json({ error: e ,status:400}); // Return here to avoid sending multiple responses
+    return res.json({ error: e, status: 400 }); // Return here to avoid sending multiple responses
   }
 });
 
-app.get("/", (req,res) => {
-  const data = FormData.find()
-  res.json({data})
-})
+app.get("/", async (req, res) => {
+  try {
+    const data = await FormData.find();
+    res.json({ data });
+  } catch (e) {
+    res.send("error")
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
